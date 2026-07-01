@@ -64,7 +64,15 @@ Check local ZenMux readiness without a network request:
 python3 scripts/zenmux_generate_image.py --check
 ```
 
-If the check says `OpenAI SDK is required for ZenMux`, install the OpenAI Python SDK into the same Python environment that runs the script:
+The default client uses ZenMux REST endpoints, matching the working `oil-cover` skill implementation. It does not require the OpenAI Python SDK.
+
+If you explicitly choose the OpenAI SDK-compatible client:
+
+```bash
+python3 scripts/zenmux_generate_image.py --provider-client openai --check
+```
+
+and the check says `OpenAI SDK is required for ZenMux`, install the OpenAI Python SDK into the same Python environment that runs the script:
 
 ```bash
 python3 -m pip install openai
@@ -85,6 +93,15 @@ python3 -c "import sys; print(sys.executable)"
 ```
 
 Install `openai` with that same interpreter. Installing the package into a different Python environment will not fix the ZenMux readiness check.
+
+If reference-image editing returns `403 access_denied`, the script automatically falls back from `/images/edits` to `/images/generations` without uploading reference images. You can also force that behavior:
+
+```bash
+python3 scripts/zenmux_generate_image.py \
+  --generation-only \
+  --prompt-file prompts/page-01.md \
+  --out outputs/page-01.png
+```
 
 ## Validation
 

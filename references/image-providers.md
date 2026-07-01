@@ -20,10 +20,14 @@ Use this reference before generating final images.
   - `ZENMUX_BASE_URL`: optional; defaults to `https://zenmux.ai/api/v1`.
   - `ZENMUX_IMAGE_MODEL`: optional; defaults to `openai/gpt-image-2`.
   - `ZENMUX_IMAGE_SIZE`: optional; defaults to `1024x1024` because this is the documented example size.
-  - `ZENMUX_PROVIDER_CLIENT`: optional; `auto` by default. The bundled script uses the OpenAI SDK-compatible client. Raw HTTP fallback is intentionally disabled because it can return ZenMux `403 Forbidden` even when SDK-compatible calls are expected.
+  - `ZENMUX_PROVIDER_CLIENT`: optional; `auto` by default. `auto` uses ZenMux REST endpoints, matching the proven `oil-cover` skill path. Set `openai` only when you explicitly want the OpenAI SDK-compatible client.
   - `ZENMUX_PROXY`: optional; proxy override for the OpenAI SDK-compatible client.
 
-ZenMux is OpenAI SDK compatible. Use base URL `https://zenmux.ai/api/v1`; generation maps to `client.images.generate(...)`, and reference-image editing maps to `client.images.edit(...)`.
+ZenMux can be called through REST endpoints or the OpenAI SDK-compatible client. This skill defaults to the REST path because it matches the working `oil-cover` implementation:
+
+- generation maps to `POST /images/generations`
+- reference-image editing maps to multipart `POST /images/edits`
+- if `/images/edits` returns `403 access_denied`, the script falls back to `/images/generations` without uploading reference images, unless `--no-generation-fallback` is used
 
 ## ZenMux Checklist
 
@@ -31,14 +35,15 @@ Before calling ZenMux:
 
 - Confirm `ZENMUX_API_KEY` is available in the environment.
 - If using `scripts/zenmux_generate_image.py`, make sure `ZENMUX_API_KEY` is already exported in the shell or process environment.
-- Run `python3 scripts/zenmux_generate_image.py --check` before selecting ZenMux. This checks the local key and OpenAI SDK without making a network request.
-- Use the OpenAI SDK-compatible client for both generation and reference-image editing. Do not use raw HTTP fallback.
+- Run `python3 scripts/zenmux_generate_image.py --check` before selecting ZenMux. This checks the local key and selected local client without making a network request.
+- Use the default REST client unless there is a specific reason to test the OpenAI SDK-compatible client with `--provider-client openai`.
 - Use model `openai/gpt-image-2` unless `ZENMUX_IMAGE_MODEL` is set.
 - Use size from `ZENMUX_IMAGE_SIZE` when set, otherwise request the closest provider-supported size. If the target size is not directly supported, prompt for a center-safe composition so the image can be cropped/resized without cutting important text.
 - Use the same prompt structure as the built-in image provider.
 - Keep image text short and put exact long copy in the companion Markdown document.
 - For final images, pass the selected static style example, generated cover, or user-provided reference image with `--image` when available. This helps preserve typography mood, layout language, color richness, and graphic devices across the set.
 - Use multiple `--image` arguments when combining a selected cover with additional source/reference pictures.
+- If reference-image editing fails with `403 access_denied`, let the script fall back to generation-only mode before falling back to `imagegen`.
 
 ## ZenMux Script Usage
 
@@ -77,18 +82,28 @@ python3 scripts/zenmux_generate_image.py \
   --out selected-style/03-example.png
 ```
 
+Force generation-only mode when the account or model cannot access `/images/edits`:
+
+```bash
+python3 scripts/zenmux_generate_image.py \
+  --generation-only \
+  --prompt-file prompts/page-03.md \
+  --out selected-style/page-03.png
+```
+
 The script supports:
 
-- `images.generate` when no `--image` is provided.
-- `images.edit` when one or more `--image` references are provided.
-- `--provider-client auto|openai`.
+- `/images/generations` when no `--image` is provided or `--generation-only` is used.
+- `/images/edits` when one or more `--image` references are provided.
+- automatic `/images/edits` 403 fallback to `/images/generations`.
+- `--provider-client auto|rest|openai`.
 - `--size`; passed to both generation and editing.
 
 ## Raw ZenMux Request Shape
 
-Avoid raw HTTP for this skill's normal workflow. ZenMux's documented Python path is OpenAI SDK compatible, and raw HTTP fallback may return `403 Forbidden`.
+The normal workflow uses REST calls through the bundled Python script. This mirrors `oil-cover` and avoids depending on the OpenAI SDK for the default path.
 
-For debugging only, the raw generation shape is:
+Generation shape:
 
 ```bash
 curl https://zenmux.ai/api/v1/images/generations \
@@ -102,7 +117,7 @@ curl https://zenmux.ai/api/v1/images/generations \
   }'
 ```
 
-For Python/OpenAI SDK-compatible generation:
+OpenAI SDK-compatible generation, optional debugging path only:
 
 ```python
 import base64
@@ -119,7 +134,7 @@ img = client.images.generate(
 image_bytes = base64.b64decode(img.data[0].b64_json)
 ```
 
-For Python/OpenAI SDK-compatible editing:
+OpenAI SDK-compatible editing, optional debugging path only:
 
 ```python
 result = client.images.edit(

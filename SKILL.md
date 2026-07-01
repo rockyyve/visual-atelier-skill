@@ -16,7 +16,7 @@ Turn source material or direct image requirements into a refined provider-native
 - Support arbitrary final image dimensions and counts. For Xiaohongshu image notes, default to `1080 x 1350` and 4:5 vertical when the user does not specify size.
 - Support image provider selection. Use `zenmux` only when `ZENMUX_API_KEY` is present and `scripts/zenmux_generate_image.py --check` passes; otherwise use built-in `imagegen`, unless the user explicitly chooses a provider.
 - Never paste or store API keys in output files. Read keys from environment variables only.
-- For ZenMux, default to OpenAI SDK-compatible base URL `https://zenmux.ai/api/v1` and model `openai/gpt-image-2`, unless `ZENMUX_BASE_URL`, `ZENMUX_IMAGE_MODEL`, or `ZENMUX_IMAGE_SIZE` override the defaults. ZenMux requires the local OpenAI SDK path; do not fall back to raw HTTP.
+- For ZenMux, default to base URL `https://zenmux.ai/api/v1` and model `openai/gpt-image-2`, unless `ZENMUX_BASE_URL`, `ZENMUX_IMAGE_MODEL`, or `ZENMUX_IMAGE_SIZE` override the defaults. The bundled script defaults to REST calls, matching the `oil-cover` skill; the OpenAI SDK-compatible client is optional via `--provider-client openai`.
 - Generate final images with the selected image provider by default. Do not use local HTML/CSS/Playwright rendering unless the user explicitly requests exact-text screenshots and accepts the possible visual downgrade.
 - Keep one visual system across the final image set. Do not mix multiple built-in styles in one set unless the user explicitly asks for mixed styles.
 - Create `style-lock.md` and `visual-system.md` before final generation. They should be based on the selected static style example or the user's custom style brief.
@@ -63,8 +63,8 @@ Turn source material or direct image requirements into a refined provider-native
 
 6. **Generate final images with the selected provider.**
    - Use the selected provider for every final image.
-   - Before choosing ZenMux, run `python3 scripts/zenmux_generate_image.py --check`. If it fails because the OpenAI SDK is missing, use `imagegen` unless the user explicitly requires ZenMux.
-   - If ZenMux returns `403 Forbidden`, record the failure in `generation-record.md` and fall back to `imagegen` unless the user explicitly requires ZenMux. Do not retry the same ZenMux request repeatedly.
+   - Before choosing ZenMux, run `python3 scripts/zenmux_generate_image.py --check`. If the default REST check passes, ZenMux is locally configured.
+   - If ZenMux `/images/edits` returns `403 Forbidden`, let the script fall back to `/images/generations` before falling back to `imagegen`. If ZenMux generation also returns `403 Forbidden`, record the failure in `generation-record.md` and fall back to `imagegen` unless the user explicitly requires ZenMux.
    - If using ZenMux, prefer `scripts/zenmux_generate_image.py --image assets/style-examples/style-0N-*.png ...` when the static style example can help preserve style. Add user-provided reference images with additional `--image` arguments when relevant.
    - If using imagegen, carry the selected style example's visual traits into the prompt.
    - For Xiaohongshu notes, export as `01-cover.png`, `02-{role}.png`, etc.
