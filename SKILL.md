@@ -40,13 +40,14 @@ Turn source material or direct image requirements into a refined provider-native
    - Preserve claims. Do not invent metrics, testimonials, product facts, logos, screenshots, or official endorsements.
 
 3. **Show static style examples instead of generating demos.**
-   - Use the six files in `assets/style-examples/`:
+   - Use the files in `assets/style-examples/`:
      - `style-01-clean-lifestyle-guide.png`
      - `style-02-signal-playbook.png`
      - `style-03-editorial-magazine.png`
      - `style-04-tech-dashboard.png`
      - `style-05-handdrawn-notebook.png`
      - `style-06-ai-tool-lab.png`
+     - `style-07-daily-lime-lab.png`
    - Present them as existing high-fidelity examples. Do not call any image provider during style selection.
    - Do not create `demo-overview.png`, contact sheets, generated demo covers, or per-request style previews unless the user explicitly asks for new explorations.
    - After showing the examples, stop and ask the user to choose a style if no style was specified.
@@ -126,10 +127,10 @@ If the user specifies an output folder, use it.
 
 ## Style Selection Response
 
-When the user has not chosen a style, show the six static examples with image links and short guidance:
+When the user has not chosen a style, show the static examples with image links and short guidance:
 
 ```markdown
-下面是内置高保真风格样张，请选 1-6：
+下面是内置高保真风格样张，请选编号或 slug：
 
 1. clean-lifestyle-guide：适合效率、学习、清单、轻教程。
    ![clean-lifestyle-guide](/absolute/path/assets/style-examples/style-01-clean-lifestyle-guide.png)
@@ -143,6 +144,8 @@ When the user has not chosen a style, show the six static examples with image li
    ![handdrawn-notebook](/absolute/path/assets/style-examples/style-05-handdrawn-notebook.png)
 6. ai-tool-lab：适合 Codex、Agent、MCP、Skills、AI 工作流。
    ![ai-tool-lab](/absolute/path/assets/style-examples/style-06-ai-tool-lab.png)
+7. daily-lime-lab：适合 AI Skill 推荐、工具日报、前端/设计资源推荐、开源项目介绍、插件/模板种草。
+   ![daily-lime-lab](/absolute/path/assets/style-examples/style-07-daily-lime-lab.png)
 
 请选择风格编号或 slug，我再按你的内容、尺寸和数量生成最终图片。
 ```

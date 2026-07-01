@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Create a 2x3 overview image from six style example PNGs."""
+"""Create an overview image from style example PNGs."""
 
 from __future__ import annotations
 
 import argparse
+import math
 import re
 from pathlib import Path
 
@@ -58,12 +59,14 @@ def main() -> int:
     examples = sorted(examples_dir.glob("style-[0-9][0-9]-*.png"))
     if not examples:
         examples = sorted(examples_dir.glob("demo-[0-9][0-9]-*.png"))
-    if len(examples) != 6:
-        raise SystemExit(f"Expected exactly 6 style example images, found {len(examples)}")
+    if not examples:
+        raise SystemExit("No style example images found")
 
     out_path = args.out or examples_dir / "style-overview.png"
-    width = PADDING * 2 + THUMB_WIDTH * 2 + GAP_X
-    height = PADDING * 2 + HEADER_HEIGHT + (LABEL_HEIGHT + THUMB_HEIGHT) * 3 + GAP_Y * 2
+    columns = 2
+    rows = math.ceil(len(examples) / columns)
+    width = PADDING * 2 + THUMB_WIDTH * columns + GAP_X * (columns - 1)
+    height = PADDING * 2 + HEADER_HEIGHT + (LABEL_HEIGHT + THUMB_HEIGHT) * rows + GAP_Y * max(rows - 1, 0)
 
     sheet = Image.new("RGB", (width, height), BACKGROUND)
     draw = ImageDraw.Draw(sheet)
@@ -74,7 +77,7 @@ def main() -> int:
     draw.text((PADDING, PADDING), "Visual Atelier Style Overview", fill=INK, font=title_font)
     draw.text(
         (PADDING, PADDING + 58),
-        "Choose 1-6. Each thumbnail is a reusable style example; overview is only for comparison.",
+        "Choose a number or slug. Each thumbnail is a reusable style example; overview is only for comparison.",
         fill=MUTED,
         font=subtitle_font,
     )
@@ -102,8 +105,9 @@ def main() -> int:
         sheet.paste(thumb, (x, y + LABEL_HEIGHT))
         draw.rectangle((x, y + LABEL_HEIGHT, x + THUMB_WIDTH, y + LABEL_HEIGHT + THUMB_HEIGHT), outline=BORDER, width=1)
 
-    draw.rounded_rectangle((width - PADDING - 170, PADDING + 8, width - PADDING, PADDING + 50), radius=21, fill=ACCENT)
-    draw.text((width - PADDING - 145, PADDING + 16), "6 OPTIONS", fill="#ffffff", font=subtitle_font)
+    badge_text = f"{len(examples)} OPTIONS"
+    draw.rounded_rectangle((width - PADDING - 190, PADDING + 8, width - PADDING, PADDING + 50), radius=21, fill=ACCENT)
+    draw.text((width - PADDING - 164, PADDING + 16), badge_text, fill="#ffffff", font=subtitle_font)
     sheet.save(out_path)
     print(out_path)
     return 0

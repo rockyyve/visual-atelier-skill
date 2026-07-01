@@ -1,6 +1,6 @@
 # Static Style Presets
 
-Use these six built-in styles for style selection and final generation. The style examples already exist in `assets/style-examples/`; show those static PNGs instead of generating per-request demos.
+Use these built-in styles for style selection and final generation. The style examples already exist in `assets/style-examples/`; show those static PNGs instead of generating per-request demos.
 
 Each selected style must become a concrete `style-lock.md` and `visual-system.md` before final images are generated. Keep final in-image text short so the selected provider can produce polished native cards.
 
@@ -70,6 +70,17 @@ Best for: Codex, Claude Code, AI Agent, MCP, Skills, AI workflows, automation, p
 - Final page inheritance: preserve lab identity with experiment labels, objective/evidence/insight sections, central workflow cards, verification chips, tool/model tags, and crisp Swiss-grid lab panels. Do not turn it into a generic SaaS dashboard.
 - Avoid: fake percentages, KPI arrows, official-ad tone, large blank white areas.
 
+## 7. daily-lime-lab
+
+Best for: AI Skill recommendations, tool daily posts, frontend/design resource recommendations, open-source project introductions, plugin/template seeding.
+
+- Mood: clean white-green daily briefing, fresh, practical, recommendation-oriented, premium but lightweight.
+- Palette: background `#fbfcf7`, title `#111827`, fluorescent lime `#8bdc2f`, teal support `#2bbf9a`, secondary text `#6b7280`, white cards `#ffffff`, border `#e7eadf`.
+- Layout: top "Skill Daily" newspaper bar with date/issue/page mark, huge left-aligned black title across 2-3 lines, lime diagonal slash/underline emphasis, quiet gray grid/code-symbol background, middle reason/metric cards, bottom 3D product card/folder/tool illustration.
+- Cover recipe: Skill Daily header + oversized tool/skill title + three reason cards + one recommendation line + bottom product visual with 2-3 short chips.
+- Final page inheritance: preserve the daily briefing identity through the top brand bar, ultra-bold title zone, lime emphasis line, three compact reason cards, quiet grid/code background, and a bottom product-object visual. Do not turn it into a plain white text card.
+- Avoid: generic white report cards, decorative-only floating 3D shapes, green everywhere, low-density title-only posters, fake metrics.
+
 ## Style Selection Guidance
 
 Recommend styles based on content:
@@ -78,7 +89,8 @@ Recommend styles based on content:
 - Strong mistake correction or actionable workflow: `signal-playbook`.
 - Reflective course or product design notes: `editorial-magazine`.
 - Technical workflow: `tech-dashboard`, `ai-tool-lab`.
-- AI tools, agents, plugins, skills: `ai-tool-lab` first, `tech-dashboard` second.
+- AI tools, agents, plugins, skills: `ai-tool-lab` first, `daily-lime-lab` second, `tech-dashboard` third.
+- Skill/tool/resource recommendation or open-source project seeding: `daily-lime-lab` first.
 
 ## Static Style Example Output
 
@@ -91,8 +103,9 @@ When the user has not specified a style, show the existing style examples and su
 4. tech-dashboard：适合...
 5. handdrawn-notebook：适合...
 6. ai-tool-lab：适合...
+7. daily-lime-lab：适合...
 
-请选择 1-6，我再按选定风格生成完整轮播。
+请选择编号或 slug，我再按选定风格生成完整轮播。
 ```
 
 Use Markdown image tags with absolute local paths to the corresponding files under `assets/style-examples/`. Do not call an image provider during this step.

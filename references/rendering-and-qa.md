@@ -58,7 +58,7 @@ Scale proportionally for other dimensions. Never use tiny UI text for real card 
 
 ## QA Checklist
 
-- Static style examples contain exactly six PNG files named `style-01-...png` through `style-06-...png`.
+- Static style examples contain PNG files named `style-NN-...png`, including the base styles and any added styles such as `style-07-daily-lime-lab.png`.
 - Final PNG count matches the user's requested count.
 - Final PNG dimensions match the user's requested dimensions, or `1080 x 1350` for default Xiaohongshu notes.
 - Final package contains `style-lock.md`.

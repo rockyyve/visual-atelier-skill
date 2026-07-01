@@ -12,7 +12,7 @@ It supports:
 
 ## What Makes It Different
 
-Visual Atelier does not generate fresh demo images for every request. Instead, it ships with six reusable high-fidelity style examples in `assets/style-examples/`. A user chooses a style first, then the skill generates the final image set with a consistent visual system.
+Visual Atelier does not generate fresh demo images for every request. Instead, it ships with reusable high-fidelity style examples in `assets/style-examples/`. A user chooses a style first, then the skill generates the final image set with a consistent visual system.
 
 ## Included Styles
 
@@ -22,6 +22,7 @@ Visual Atelier does not generate fresh demo images for every request. Instead, i
 4. `tech-dashboard`
 5. `handdrawn-notebook`
 6. `ai-tool-lab`
+7. `daily-lime-lab`
 
 ## Structure
 

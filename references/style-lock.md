@@ -133,6 +133,19 @@ Forbidden drift: clean digital cards, corporate checklist, illegible handwriting
 
 Forbidden drift: generic dashboard, KPI marketing sheet, large blank white areas, fake percentages or official-ad tone.
 
+### daily-lime-lab
+
+- White or very pale gray Skill Daily briefing background with quiet grid and low-opacity code symbols.
+- Top 7%-10% daily brand bar with "Skill Daily", date/issue/page marks, and small status labels.
+- Huge ultra-bold black sans-serif title, left aligned, usually 2-3 lines and visually dominant.
+- Fluorescent lime underline, diagonal slash, or cut block used only for emphasis.
+- Middle layer of three compact reason/metric cards with white fill, light gray-green border, and short labels.
+- Bottom layer with a 3D product card, folder, tool tile, prompt sheet, or screenshot frame that reads as a useful product object.
+- Green accents reserved for highlight lines, recommendation/success labels, and small chips; do not flood the canvas.
+- Medium-high density: title, tool name, three reasons, recommendation line, and product visual should all be present.
+
+Forbidden drift: plain white text card, generic SaaS dashboard, random decorative 3D objects, green used as the dominant background, missing Skill Daily bar, missing three-card middle layer, fake metrics.
+
 ## Final QA Questions
 
 Before delivery, compare the selected style reference and final images:

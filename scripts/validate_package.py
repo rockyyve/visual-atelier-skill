@@ -12,6 +12,15 @@ from pathlib import Path
 DEFAULT_WIDTH = 1080
 DEFAULT_HEIGHT = 1350
 OVERVIEW_NAME = "demo-overview.png"
+REQUIRED_STYLE_EXAMPLE_PREFIXES = (
+    "style-01-",
+    "style-02-",
+    "style-03-",
+    "style-04-",
+    "style-05-",
+    "style-06-",
+    "style-07-",
+)
 
 
 def read_size(path: Path) -> tuple[int, int]:
@@ -110,10 +119,11 @@ def main() -> int:
 
     if args.style_examples_set:
         style_pngs = sorted(output_dir.glob("style-[0-9][0-9]-*.png"))
-        if len(style_pngs) != 6:
-            failures.append(f"Style examples set must contain exactly 6 style-*.png files, found {len(style_pngs)}")
-        for index in range(1, 7):
-            prefix = f"style-{index:02d}-"
+        if len(style_pngs) < len(REQUIRED_STYLE_EXAMPLE_PREFIXES):
+            failures.append(
+                f"Style examples set must contain at least {len(REQUIRED_STYLE_EXAMPLE_PREFIXES)} style-*.png files, found {len(style_pngs)}"
+            )
+        for prefix in REQUIRED_STYLE_EXAMPLE_PREFIXES:
             if not any(path.name.startswith(prefix) for path in style_pngs):
                 failures.append(f"Missing style example file with prefix {prefix}")
 
