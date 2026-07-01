@@ -151,13 +151,13 @@ Forbidden drift: plain white text card, generic SaaS dashboard, random decorativ
 - Deep purple-black knowledge-base canvas with blue, purple, and cyan-green neon accents.
 - Top semantic label and page number, preferably in Chinese for Chinese-facing cards.
 - Huge solid-color neon title, not gradient text, occupying a strong upper title layer.
-- Clear three-part structure: title layer, module matrix/pipeline layer, and bottom insight/command/metric bar.
-- Solid dark information panels with thin low-opacity neon borders, never decorative glassmorphism.
-- Middle section uses at least four information nodes, a 2x2 module grid, four-stage pipeline, command cards, or screenshot frame.
-- Bottom summary layer uses a bright but restrained insight strip, metric strip, tag group, or action checklist.
-- Glow supports hierarchy only: title emphasis, module borders, node connectors, and bottom bar.
+- Clear three-part structure: title layer, knowledge graph/vault layer, and bottom insight/action strip.
+- Solid dark note cards or vault-file cards with thin low-opacity neon borders, never decorative glassmorphism.
+- Middle section uses a large connected graph constellation with 8-12 nodes plus at least four surrounding note cards, backlinks, markdown-file marks, or relationship labels.
+- Bottom summary layer uses a bright but restrained insight strip, tag group, or action checklist that reads as knowledge-system guidance rather than metrics.
+- Glow supports hierarchy only: title emphasis, selected graph nodes, relation lines, note-card borders, and bottom bar.
 
-Forbidden drift: generic dark SaaS dashboard, full-page glow, gradient text, glassy decoration, half-empty lower canvas, only 2-3 small cards, low-contrast body text.
+Forbidden drift: generic dark SaaS dashboard, 2x2 dashboard grid, terminal/build-log cards, screenshot-heavy UI, full-page glow, gradient text, glassy decoration, half-empty lower canvas, only 2-3 small cards, low-contrast body text.
 
 ## Final QA Questions
 

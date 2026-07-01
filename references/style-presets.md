@@ -87,10 +87,10 @@ Best for: Obsidian, Codex, knowledge bases, AI workflows, system setup, tool eco
 
 - Mood: neon knowledge vault, precise, dark, technical, system-oriented.
 - Palette: deep purple-black `#090815`, blue `#60a5fa`, purple `#a78bfa`, cyan-green `#14f1c8`, body text `#f8fafc`.
-- Layout: top Chinese semantic label and page number, huge 2-3 line title occupying 24%-34%, clear dark module matrix under the title, bottom insight/command/metric bar.
-- Cover recipe: top label + huge solid-color neon title + 2x2 module matrix or four-stage pipeline + bottom command/insight bar + compact workflow tags.
-- Final page inheritance: preserve the three-part structure of title layer, module layer, and summary layer. Cards should use solid dark panels and thin low-opacity neon borders, not decorative glassmorphism.
-- Avoid: full-page glow, gradient title text, empty lower halves, generic dashboard charts, only 2-3 tiny cards, decorative glass panels.
+- Layout: top Chinese semantic label and page number, huge 2-3 line title occupying 24%-34%, central knowledge-graph constellation or vault map, staggered note cards around the graph, bottom insight/action strip.
+- Cover recipe: top label + huge solid-color neon title + central Vault graph with 8-12 connected nodes + four surrounding note/vault cards + bottom knowledge-network insight bar + compact tags.
+- Final page inheritance: preserve the knowledge-vault identity through graph nodes, backlinks, markdown-file cards, relation lines, and a bottom summary strip. Cards should feel like connected notes or vault files, not dashboard widgets.
+- Avoid: full-page glow, gradient title text, empty lower halves, generic dashboard charts, 2x2 dashboard panels, terminal/build-log cards, screenshot-heavy UI, decorative glass panels.
 
 ## Style Selection Guidance
 
