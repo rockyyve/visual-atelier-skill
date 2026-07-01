@@ -81,6 +81,17 @@ Best for: AI Skill recommendations, tool daily posts, frontend/design resource r
 - Final page inheritance: preserve the daily briefing identity through the top brand bar, ultra-bold title zone, lime emphasis line, three compact reason cards, quiet grid/code background, and a bottom product-object visual. Do not turn it into a plain white text card.
 - Avoid: generic white report cards, decorative-only floating 3D shapes, green everywhere, low-density title-only posters, fake metrics.
 
+## 8. obsidian-neon-knowledge
+
+Best for: Obsidian, Codex, knowledge bases, AI workflows, system setup, tool ecosystems.
+
+- Mood: neon knowledge vault, precise, dark, technical, system-oriented.
+- Palette: deep purple-black `#090815`, blue `#60a5fa`, purple `#a78bfa`, cyan-green `#14f1c8`, body text `#f8fafc`.
+- Layout: top Chinese semantic label and page number, huge 2-3 line title occupying 24%-34%, clear dark module matrix under the title, bottom insight/command/metric bar.
+- Cover recipe: top label + huge solid-color neon title + 2x2 module matrix or four-stage pipeline + bottom command/insight bar + compact workflow tags.
+- Final page inheritance: preserve the three-part structure of title layer, module layer, and summary layer. Cards should use solid dark panels and thin low-opacity neon borders, not decorative glassmorphism.
+- Avoid: full-page glow, gradient title text, empty lower halves, generic dashboard charts, only 2-3 tiny cards, decorative glass panels.
+
 ## Style Selection Guidance
 
 Recommend styles based on content:
@@ -91,6 +102,7 @@ Recommend styles based on content:
 - Technical workflow: `tech-dashboard`, `ai-tool-lab`.
 - AI tools, agents, plugins, skills: `ai-tool-lab` first, `daily-lime-lab` second, `tech-dashboard` third.
 - Skill/tool/resource recommendation or open-source project seeding: `daily-lime-lab` first.
+- Obsidian, knowledge bases, AI workflow systems, and tool ecosystems: `obsidian-neon-knowledge` first, `ai-tool-lab` second.
 
 ## Static Style Example Output
 
@@ -104,6 +116,7 @@ When the user has not specified a style, show the existing style examples and su
 5. handdrawn-notebook：适合...
 6. ai-tool-lab：适合...
 7. daily-lime-lab：适合...
+8. obsidian-neon-knowledge：适合...
 
 请选择编号或 slug，我再按选定风格生成完整轮播。
 ```

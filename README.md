@@ -23,6 +23,7 @@ Visual Atelier does not generate fresh demo images for every request. Instead, i
 5. `handdrawn-notebook`
 6. `ai-tool-lab`
 7. `daily-lime-lab`
+8. `obsidian-neon-knowledge`
 
 ## Structure
 

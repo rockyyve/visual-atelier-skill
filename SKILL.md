@@ -48,6 +48,7 @@ Turn source material or direct image requirements into a refined provider-native
      - `style-05-handdrawn-notebook.png`
      - `style-06-ai-tool-lab.png`
      - `style-07-daily-lime-lab.png`
+     - `style-08-obsidian-neon-knowledge.png`
    - Present them as existing high-fidelity examples. Do not call any image provider during style selection.
    - Do not create `demo-overview.png`, contact sheets, generated demo covers, or per-request style previews unless the user explicitly asks for new explorations.
    - After showing the examples, stop and ask the user to choose a style if no style was specified.
@@ -146,6 +147,8 @@ When the user has not chosen a style, show the static examples with image links 
    ![ai-tool-lab](/absolute/path/assets/style-examples/style-06-ai-tool-lab.png)
 7. daily-lime-lab：适合 AI Skill 推荐、工具日报、前端/设计资源推荐、开源项目介绍、插件/模板种草。
    ![daily-lime-lab](/absolute/path/assets/style-examples/style-07-daily-lime-lab.png)
+8. obsidian-neon-knowledge：适合 Obsidian、Codex、知识库、AI 工作流、系统搭建、工具生态。
+   ![obsidian-neon-knowledge](/absolute/path/assets/style-examples/style-08-obsidian-neon-knowledge.png)
 
 请选择风格编号或 slug，我再按你的内容、尺寸和数量生成最终图片。
 ```

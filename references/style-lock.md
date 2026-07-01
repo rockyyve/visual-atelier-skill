@@ -146,6 +146,19 @@ Forbidden drift: generic dashboard, KPI marketing sheet, large blank white areas
 
 Forbidden drift: plain white text card, generic SaaS dashboard, random decorative 3D objects, green used as the dominant background, missing Skill Daily bar, missing three-card middle layer, fake metrics.
 
+### obsidian-neon-knowledge
+
+- Deep purple-black knowledge-base canvas with blue, purple, and cyan-green neon accents.
+- Top semantic label and page number, preferably in Chinese for Chinese-facing cards.
+- Huge solid-color neon title, not gradient text, occupying a strong upper title layer.
+- Clear three-part structure: title layer, module matrix/pipeline layer, and bottom insight/command/metric bar.
+- Solid dark information panels with thin low-opacity neon borders, never decorative glassmorphism.
+- Middle section uses at least four information nodes, a 2x2 module grid, four-stage pipeline, command cards, or screenshot frame.
+- Bottom summary layer uses a bright but restrained insight strip, metric strip, tag group, or action checklist.
+- Glow supports hierarchy only: title emphasis, module borders, node connectors, and bottom bar.
+
+Forbidden drift: generic dark SaaS dashboard, full-page glow, gradient text, glassy decoration, half-empty lower canvas, only 2-3 small cards, low-contrast body text.
+
 ## Final QA Questions
 
 Before delivery, compare the selected style reference and final images:

@@ -13,5 +13,6 @@ Use them as the style selection surface before final image generation. Do not re
 5. `style-05-handdrawn-notebook.png` - warm notebook cards for beginner explainers, mental models, learning notes, and practical checklists.
 6. `style-06-ai-tool-lab.png` - clean AI tool lab cards for Codex, agents, MCP, skills, automation, and AI workflow notes.
 7. `style-07-daily-lime-lab.png` - white-green Skill Daily cards for AI skill recommendations, tool daily posts, frontend/design resources, open-source project intros, plugins, and templates.
+8. `style-08-obsidian-neon-knowledge.png` - dark neon knowledge-base cards for Obsidian, Codex, AI workflows, system setup, and tool ecosystems.
 
 All examples are `1080 x 1350` PNGs.

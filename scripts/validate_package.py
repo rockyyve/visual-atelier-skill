@@ -20,6 +20,7 @@ REQUIRED_STYLE_EXAMPLE_PREFIXES = (
     "style-05-",
     "style-06-",
     "style-07-",
+    "style-08-",
 )
 
 
