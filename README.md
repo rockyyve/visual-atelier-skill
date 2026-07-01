@@ -64,6 +64,28 @@ Check local ZenMux readiness without a network request:
 python3 scripts/zenmux_generate_image.py --check
 ```
 
+If the check says `OpenAI SDK is required for ZenMux`, install the OpenAI Python SDK into the same Python environment that runs the script:
+
+```bash
+python3 -m pip install openai
+```
+
+Then verify that the active `python3` can import it:
+
+```bash
+python3 -c "import openai; print(openai.__version__)"
+python3 scripts/zenmux_generate_image.py --check
+```
+
+If you use `pyenv`, Conda, or another Python manager, first confirm which interpreter Codex is using:
+
+```bash
+which python3
+python3 -c "import sys; print(sys.executable)"
+```
+
+Install `openai` with that same interpreter. Installing the package into a different Python environment will not fix the ZenMux readiness check.
+
 ## Validation
 
 Validate the bundled style examples:
