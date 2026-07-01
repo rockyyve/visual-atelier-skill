@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Atelier"
+  short_description: "Choose a style, then craft image sets"
+  default_prompt: "Use $visual-atelier to turn this content into a refined styled image set."
