@@ -12,7 +12,7 @@ It supports:
 
 ## What Makes It Different
 
-Visual Atelier does not generate fresh demo images for every request. Instead, it ships with reusable high-fidelity style examples in `assets/style-examples/`. A user chooses a style first, then the skill generates the final image set with a consistent visual system.
+Visual Atelier does not generate fresh demo images for every request. Instead, it ships with reusable high-fidelity style examples in `assets/style-examples/` for vertical cards and `assets/style-examples-horizontal/` for 4:3 landscape cards. A user chooses a style first, then the skill generates the final image set with a consistent visual system.
 
 ## Included Styles
 
@@ -32,6 +32,7 @@ visual-atelier-skill/
   SKILL.md
   agents/openai.yaml
   assets/style-examples/
+  assets/style-examples-horizontal/
   references/
   scripts/
 ```
@@ -105,12 +106,15 @@ python3 scripts/zenmux_generate_image.py \
   --out outputs/page-01.png
 ```
 
+If Python reports `CERTIFICATE_VERIFY_FAILED`, install `certifi` in the same Python environment or set `SSL_CERT_FILE`. The bundled script automatically uses `certifi` as a CA fallback when it is available.
+
 ## Validation
 
 Validate the bundled style examples:
 
 ```bash
 python3 scripts/validate_package.py assets/style-examples --style-examples-set
+python3 scripts/validate_package.py assets/style-examples-horizontal --horizontal-style-examples-set
 ```
 
 Validate a general image set:

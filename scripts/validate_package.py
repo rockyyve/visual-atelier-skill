@@ -11,6 +11,8 @@ from pathlib import Path
 
 DEFAULT_WIDTH = 1080
 DEFAULT_HEIGHT = 1350
+HORIZONTAL_STYLE_WIDTH = 1280
+HORIZONTAL_STYLE_HEIGHT = 960
 OVERVIEW_NAME = "demo-overview.png"
 REQUIRED_STYLE_EXAMPLE_PREFIXES = (
     "style-01-",
@@ -51,6 +53,7 @@ def main() -> int:
     parser.add_argument("--allow-demos-only", action="store_true")
     parser.add_argument("--demo-set", action="store_true")
     parser.add_argument("--style-examples-set", action="store_true")
+    parser.add_argument("--horizontal-style-examples-set", action="store_true")
     parser.add_argument("--general-image-set", action="store_true")
     parser.add_argument(
         "--allow-controlled-renderer",
@@ -63,7 +66,10 @@ def main() -> int:
         help="Require generation-record.md to mention a supported image provider.",
     )
     args = parser.parse_args()
-    examples_only = args.allow_demos_only or args.style_examples_set
+    if args.horizontal_style_examples_set and (args.width, args.height) == (DEFAULT_WIDTH, DEFAULT_HEIGHT):
+        args.width = HORIZONTAL_STYLE_WIDTH
+        args.height = HORIZONTAL_STYLE_HEIGHT
+    examples_only = args.allow_demos_only or args.style_examples_set or args.horizontal_style_examples_set
 
     output_dir = args.output_dir
     if not output_dir.exists() or not output_dir.is_dir():
@@ -127,6 +133,16 @@ def main() -> int:
         for prefix in REQUIRED_STYLE_EXAMPLE_PREFIXES:
             if not any(path.name.startswith(prefix) for path in style_pngs):
                 failures.append(f"Missing style example file with prefix {prefix}")
+
+    if args.horizontal_style_examples_set:
+        style_pngs = sorted(output_dir.glob("style-[0-9][0-9]-*-4x3.png"))
+        if len(style_pngs) < len(REQUIRED_STYLE_EXAMPLE_PREFIXES):
+            failures.append(
+                f"Horizontal style examples set must contain at least {len(REQUIRED_STYLE_EXAMPLE_PREFIXES)} style-*-4x3.png files, found {len(style_pngs)}"
+            )
+        for prefix in REQUIRED_STYLE_EXAMPLE_PREFIXES:
+            if not any(path.name.startswith(prefix) for path in style_pngs):
+                failures.append(f"Missing horizontal style example file with prefix {prefix}")
 
     checked_card_count = 0
     for png in pngs:
@@ -221,6 +237,8 @@ def main() -> int:
             print(f"Ignored optional legacy {OVERVIEW_NAME}.")
     if args.style_examples_set:
         print("Validated static style examples set structure.")
+    if args.horizontal_style_examples_set:
+        print("Validated static 4:3 landscape style examples set structure.")
     if has_note_package:
         print("Found note-package.md.")
     if has_image_set_package:

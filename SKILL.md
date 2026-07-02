@@ -9,11 +9,11 @@ Turn source material or direct image requirements into a refined provider-native
 
 ## Core Contract
 
-- Do not generate style demo images by default. Use the static high-fidelity style examples in `assets/style-examples/` as the style selection surface.
+- Do not generate style demo images by default. Use the static high-fidelity style examples as the style selection surface: vertical examples in `assets/style-examples/`, and 4:3 landscape examples in `assets/style-examples-horizontal/`.
 - Show the static style examples first when the user has not already specified a style. Ask the user to choose by number or slug before generating final images.
 - If the user already specifies a style, skip the style menu and proceed with that style.
 - If the user gives a custom style not covered by the examples, write a concise style brief and ask only if the style is ambiguous.
-- Support arbitrary final image dimensions and counts. For Xiaohongshu image notes, default to `1080 x 1350` and 4:5 vertical when the user does not specify size.
+- Support arbitrary final image dimensions and counts. For Xiaohongshu image notes, default to `1080 x 1350` and 4:5 vertical when the user does not specify size. For 4:3 landscape requests, use `1280 x 960` unless the user provides an exact size.
 - Support image provider selection. Use `zenmux` only when `ZENMUX_API_KEY` is present and `scripts/zenmux_generate_image.py --check` passes; otherwise use built-in `imagegen`, unless the user explicitly chooses a provider.
 - Never paste or store API keys in output files. Read keys from environment variables only.
 - For ZenMux, default to base URL `https://zenmux.ai/api/v1` and model `openai/gpt-image-2`, unless `ZENMUX_BASE_URL`, `ZENMUX_IMAGE_MODEL`, or `ZENMUX_IMAGE_SIZE` override the defaults. The bundled script defaults to REST calls, matching the `oil-cover` skill; the OpenAI SDK-compatible client is optional via `--provider-client openai`.
@@ -40,7 +40,8 @@ Turn source material or direct image requirements into a refined provider-native
    - Preserve claims. Do not invent metrics, testimonials, product facts, logos, screenshots, or official endorsements.
 
 3. **Show static style examples instead of generating demos.**
-   - Use the files in `assets/style-examples/`:
+   - Match the example set to the requested aspect ratio. Use `assets/style-examples-horizontal/` for 4:3 landscape requests; otherwise use `assets/style-examples/`.
+   - Vertical examples in `assets/style-examples/`:
      - `style-01-clean-lifestyle-guide.png`
      - `style-02-signal-playbook.png`
      - `style-03-editorial-magazine.png`
@@ -49,6 +50,15 @@ Turn source material or direct image requirements into a refined provider-native
      - `style-06-ai-tool-lab.png`
      - `style-07-daily-lime-lab.png`
      - `style-08-obsidian-neon-knowledge.png`
+   - 4:3 landscape examples in `assets/style-examples-horizontal/`:
+     - `style-01-clean-lifestyle-guide-4x3.png`
+     - `style-02-signal-playbook-4x3.png`
+     - `style-03-editorial-magazine-4x3.png`
+     - `style-04-tech-dashboard-4x3.png`
+     - `style-05-handdrawn-notebook-4x3.png`
+     - `style-06-ai-tool-lab-4x3.png`
+     - `style-07-daily-lime-lab-4x3.png`
+     - `style-08-obsidian-neon-knowledge-4x3.png`
    - Present them as existing high-fidelity examples. Do not call any image provider during style selection.
    - Do not create `demo-overview.png`, contact sheets, generated demo covers, or per-request style previews unless the user explicitly asks for new explorations.
    - After showing the examples, stop and ask the user to choose a style if no style was specified.
@@ -67,7 +77,7 @@ Turn source material or direct image requirements into a refined provider-native
    - Use the selected provider for every final image.
    - Before choosing ZenMux, run `python3 scripts/zenmux_generate_image.py --check`. If the default REST check passes, ZenMux is locally configured.
    - If ZenMux `/images/edits` returns `403 Forbidden`, let the script fall back to `/images/generations` before falling back to `imagegen`. If ZenMux generation also returns `403 Forbidden`, record the failure in `generation-record.md` and fall back to `imagegen` unless the user explicitly requires ZenMux.
-   - If using ZenMux, prefer `scripts/zenmux_generate_image.py --image assets/style-examples/style-0N-*.png ...` when the static style example can help preserve style. Add user-provided reference images with additional `--image` arguments when relevant.
+   - If using ZenMux, prefer `scripts/zenmux_generate_image.py --image assets/style-examples*/style-0N-*.png ...` when the static style example can help preserve style. For 4:3 landscape work, prefer the matching horizontal example. Add user-provided reference images with additional `--image` arguments when relevant.
    - If using imagegen, carry the selected style example's visual traits into the prompt.
    - For Xiaohongshu notes, export as `01-cover.png`, `02-{role}.png`, etc.
    - For general image sets, export as `01-{role}.png`, `02-{role}.png`, etc.
@@ -82,6 +92,10 @@ Turn source material or direct image requirements into a refined provider-native
    - Validate static style examples after skill changes:
      ```bash
      python3 scripts/validate_package.py assets/style-examples --style-examples-set
+     ```
+   - Validate static 4:3 landscape examples after skill changes:
+     ```bash
+     python3 scripts/validate_package.py assets/style-examples-horizontal --horizontal-style-examples-set
      ```
    - Validate Xiaohongshu final packages:
      ```bash
@@ -153,7 +167,7 @@ When the user has not chosen a style, show the static examples with image links 
 请选择风格编号或 slug，我再按你的内容、尺寸和数量生成最终图片。
 ```
 
-Use absolute local paths in Markdown image tags so the app can render them.
+Use absolute local paths in Markdown image tags so the app can render them. For 4:3 landscape requests, use the matching files under `assets/style-examples-horizontal/` in this same response pattern.
 
 ## Final Image Prompt Shape
 
@@ -174,10 +188,10 @@ Short in-image text:
 Title: "{title}"
 Subtitle: "{subtitle}"
 Bullets or labels: "{item 1}" / "{item 2}" / "{item 3}"
-Composition: {specific layout instructions from selected style, not a generic template}
+Composition: {specific layout instructions from selected style and requested aspect ratio, not a generic template}
 Craft requirement: preserve style-level typography care, color richness, component shapes, decoration density, and readable hierarchy.
 Text handling: use short phrases only; exact long wording goes in the companion Markdown document.
-Constraints: provider-native final image, no watermark, no fake data, no unsupported claims, no fake logos, no palette-only style inheritance, no HTML/CSS template look.
+Constraints: provider-native final image, no watermark, no fake data, no unsupported claims, no fake logos, no palette-only style inheritance, no HTML/CSS template look, no stretching a vertical layout into a horizontal canvas.
 ```
 
 If the provider does not preserve exact text, shorten the in-image wording and regenerate. Do not switch to HTML/CSS just to repair small text errors unless the user explicitly requested exact-text screenshots.

@@ -4,7 +4,7 @@ Use this reference before exporting final images or declaring an image package c
 
 ## Style Selection Rules
 
-- Use the static examples in `assets/style-examples/` as the selection surface.
+- Use static examples as the selection surface: `assets/style-examples/` for vertical work, `assets/style-examples-horizontal/` for 4:3 landscape work.
 - Do not generate demo images, contact sheets, `demo-overview.png`, or per-request style previews by default.
 - Do not present cached style examples as if they are content-specific demos. They are reusable style samples.
 - If the user asks for fresh visual exploration, treat it as an explicit exception and record it in `generation-record.md`.
@@ -19,15 +19,17 @@ Use this reference before exporting final images or declaring an image package c
 
 ## Canvas Rules
 
-- Use the user's requested dimensions. For Xiaohongshu notes, default to `1080 x 1350`.
+- Use the user's requested dimensions. For Xiaohongshu notes, default to `1080 x 1350`. For 4:3 landscape requests without exact dimensions, use `1280 x 960`.
 - Do not solve off-ratio output by letterboxing, pillarboxing, blur-fill, decorative frames, or padding.
 - If a provider output is off-ratio, regenerate or crop only when the crop preserves the whole designed card without letterboxing or padding.
+- Do not center a vertical card inside a horizontal canvas. Recompose the selected style for the requested ratio.
 
 ## Layout Density
 
 - Use a top title/identity zone, middle content zone, and bottom information anchor on every image unless the user's format calls for another structure.
 - Real content should occupy roughly 70%-86% of the canvas height.
 - Do not leave a continuous blank lower area larger than 160px on vertical social cards.
+- On 4:3 landscape images, real content should also occupy roughly 70%-86% of the canvas width; do not leave an empty side column larger than 180px unless it contains intentional style-specific texture plus a foreground anchor.
 - If content is thin, add one of: why it matters, how to judge, next step, common mistake, example, applicable scenario.
 
 ## Style Inheritance
@@ -59,6 +61,7 @@ Scale proportionally for other dimensions. Never use tiny UI text for real card 
 ## QA Checklist
 
 - Static style examples contain PNG files named `style-NN-...png`, including the base styles and any added styles such as `style-07-daily-lime-lab.png` and `style-08-obsidian-neon-knowledge.png`.
+- Static 4:3 landscape examples, when validating the skill package, contain PNG files named `style-NN-...-4x3.png` under `assets/style-examples-horizontal/`.
 - Final PNG count matches the user's requested count.
 - Final PNG dimensions match the user's requested dimensions, or `1080 x 1350` for default Xiaohongshu notes.
 - Final package contains `style-lock.md`.

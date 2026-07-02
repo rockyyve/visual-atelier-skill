@@ -8,11 +8,12 @@ Create `style-lock.md` in the selected-style output folder before creating `visu
 
 It must include:
 
-- Selected style slug and selected static style example path, or custom style brief.
+- Selected style slug and selected static style example path, or custom style brief. For 4:3 landscape work, prefer a path under `assets/style-examples-horizontal/`.
 - Output image set path.
 - Visual promise: one sentence describing why this style fits the user's request.
 - Locked traits: 6-10 concrete style features to preserve.
 - Page inheritance rule: what every final page must repeat.
+- Aspect-ratio rule: how the selected style adapts to the requested canvas without stretching a vertical layout.
 - Visual-system handoff: what `visual-system.md` must convert into executable page rules.
 - Allowed simplifications for exact Chinese text.
 - Forbidden drift: what would make the final cards fail.
@@ -43,6 +44,10 @@ Output image set: {selected-style}/
 
 Every final image must use at least 3 locked traits. A cover or first image should use at least 4 when the format includes one.
 
+## Aspect-Ratio Rule
+
+The layout must be rebuilt for {width} x {height}. If the target is 4:3 landscape, use a wide title/content/visual-object structure and do not center a vertical card, add side padding, or leave a weak empty right/bottom area.
+
 ## Visual-System Handoff
 
 `visual-system.md` must convert these locked traits into typography, layout, color-ratio, component, background, decoration, and footer/label rules before final images are generated.
@@ -61,6 +66,7 @@ Every final image must use at least 3 locked traits. A cover or first image shou
 - Letting final images look less refined than the selected style reference in typography, layout, color richness, or component craft.
 - Removing the selected style's main graphic devices from final images.
 - Huge blank lower areas or thin content modules.
+- Stretching, cropping, or padding a vertical-card composition into a horizontal canvas.
 ```
 
 ## Style-Specific Locked Traits

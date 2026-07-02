@@ -9,6 +9,7 @@ import importlib.util
 import json
 import mimetypes
 import os
+import ssl
 import sys
 import time
 import urllib.error
@@ -26,6 +27,16 @@ RETRYABLE_HTTP_CODES = {408, 429, 500, 502, 503, 504}
 
 def retry_delay(attempt: int) -> float:
     return min(2 ** attempt, 8) + attempt * 0.25
+
+
+def build_ssl_context() -> ssl.SSLContext | None:
+    if os.environ.get("SSL_CERT_FILE") or os.environ.get("SSL_CERT_DIR"):
+        return None
+    if not importlib.util.find_spec("certifi"):
+        return None
+    import certifi
+
+    return ssl.create_default_context(cafile=certifi.where())
 
 
 def read_prompt(args: argparse.Namespace) -> str:
@@ -57,7 +68,7 @@ def extract_image_payload(payload: object) -> tuple[bytes | None, str | None]:
 
 
 def fetch_image_url(image_url: str) -> bytes:
-    with urllib.request.urlopen(image_url, timeout=180) as response:  # noqa: S310
+    with urllib.request.urlopen(image_url, timeout=180, context=build_ssl_context()) as response:  # noqa: S310
         return response.read()
 
 
@@ -65,7 +76,7 @@ def read_urlopen_json(request: urllib.request.Request, timeout: int, *, attempts
     last_error: BaseException | None = None
     for attempt in range(attempts):
         try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310
+            with urllib.request.urlopen(request, timeout=timeout, context=build_ssl_context()) as response:  # noqa: S310
                 return json.loads(response.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             if exc.code not in RETRYABLE_HTTP_CODES or attempt == attempts - 1:

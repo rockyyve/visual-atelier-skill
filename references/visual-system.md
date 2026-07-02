@@ -14,6 +14,7 @@ It must include:
 - Typography system: title mood, title scale, body scale, emphasis treatment, and forbidden fallback fonts.
 - Color system: background color or texture, dominant/accent/support ratios, contrast rules, and forbidden palette drift.
 - Layout system: grid, title zone, content zone, evidence zone, bottom zone, margins, and spacing rhythm.
+- Aspect-ratio adaptation: how the style uses the requested canvas shape, especially 4:3 landscape.
 - Component vocabulary: allowed modules, cards, chips, dividers, callouts, arrows, stamps, labels, diagrams, or object frames.
 - Background and texture rules.
 - Footer or bottom-anchor rule.
@@ -60,6 +61,12 @@ Final images must look like the same designed series as the selected style refer
 - Bottom zone: {CTA/status/takeaway pattern}
 - Margins and spacing: {outer margin, gap rhythm}
 
+## Aspect-Ratio Adaptation
+
+- Requested canvas: {width} x {height}
+- Layout adaptation: {how the selected style changes for this ratio}
+- For 4:3 landscape: use a wide composition with left/right or three-band hierarchy, avoid vertical-card centering, avoid pillarbox padding, and keep real content across 70%-86% of both width and height.
+
 ## Component Vocabulary
 
 - {component 1}: {shape, border, fill, shadow/texture}
@@ -90,6 +97,7 @@ Final images must look like the same designed series as the selected style refer
 - Modules become evenly spaced report boxes instead of style-specific components.
 - Background texture, object metaphor, decorative marks, or footer rhythm disappear.
 - Final images have less visual density or weaker hierarchy than the style reference.
+- Landscape outputs keep the vertical-card skeleton and fill the extra width with empty background.
 ```
 
 ## Final Image Standard

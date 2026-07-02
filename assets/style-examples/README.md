@@ -15,4 +15,4 @@ Use them as the style selection surface before final image generation. Do not re
 7. `style-07-daily-lime-lab.png` - white-green Skill Daily cards for AI skill recommendations, tool daily posts, frontend/design resources, open-source project intros, plugins, and templates.
 8. `style-08-obsidian-neon-knowledge.png` - dark neon knowledge-graph cards for Obsidian, Codex, connected notes, AI workflows, and tool ecosystems.
 
-All examples are `1080 x 1350` PNGs.
+All examples in this directory are `1080 x 1350` PNGs. The matching 4:3 landscape examples live in `../style-examples-horizontal/`.
