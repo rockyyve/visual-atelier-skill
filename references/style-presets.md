@@ -92,7 +92,7 @@ Best for: AI Skill recommendations, tool daily posts, frontend/design resource r
 
 - Mood: clean white-green daily briefing, fresh, practical, recommendation-oriented, premium but lightweight.
 - Palette: background `#fbfcf7`, title `#111827`, fluorescent lime `#8bdc2f`, teal support `#2bbf9a`, secondary text `#6b7280`, white cards `#ffffff`, border `#e7eadf`.
-- Layout: top "Skill Daily" newspaper bar with date/issue/page mark, huge left-aligned black title across 2-3 lines, lime diagonal slash/underline emphasis, quiet gray grid/code-symbol background, middle reason/metric cards, bottom 3D product card/folder/tool illustration.
+- Layout: top "Skill Daily" newspaper bar with issue/page/category/status marks, huge left-aligned black title across 2-3 lines, lime diagonal slash/underline emphasis, quiet gray grid/code-symbol background, middle reason/metric cards, bottom 3D product card/folder/tool illustration. Do not include a date by default; add a date only when the user asks for it or the source material makes the date meaningful.
 - 4:3 landscape layout: Skill Daily bar across the top, oversized title on the left, three compact reason cards in the center, 3D product card/folder/tool object on the right or lower-right, lime emphasis line tying the zones together.
 - Cover recipe: Skill Daily header + oversized tool/skill title + three reason cards + one recommendation line + bottom product visual with 2-3 short chips.
 - Final page inheritance: preserve the daily briefing identity through the top brand bar, ultra-bold title zone, lime emphasis line, three compact reason cards, quiet grid/code background, and a bottom product-object visual. Do not turn it into a plain white text card.

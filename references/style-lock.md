@@ -142,7 +142,7 @@ Forbidden drift: generic dashboard, KPI marketing sheet, large blank white areas
 ### daily-lime-lab
 
 - White or very pale gray Skill Daily briefing background with quiet grid and low-opacity code symbols.
-- Top 7%-10% daily brand bar with "Skill Daily", date/issue/page marks, and small status labels.
+- Top 7%-10% daily brand bar with "Skill Daily", issue/page/category/status marks, and small labels. Do not include a date by default; use a date only when the user asks for it or the source material is explicitly time-sensitive.
 - Huge ultra-bold black sans-serif title, left aligned, usually 2-3 lines and visually dominant.
 - Fluorescent lime underline, diagonal slash, or cut block used only for emphasis.
 - Middle layer of three compact reason/metric cards with white fill, light gray-green border, and short labels.
