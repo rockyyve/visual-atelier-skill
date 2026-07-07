@@ -45,7 +45,7 @@ Turn source material or direct image requirements into a refined provider-native
      - `style-01-clean-lifestyle-guide.png`
      - `style-02-signal-playbook.png`
      - `style-03-editorial-magazine.png`
-     - `style-04-tech-dashboard.png`
+     - `style-04-paper-system-mirror.png`
      - `style-05-handdrawn-notebook.png`
      - `style-06-ai-tool-lab.png`
      - `style-07-daily-lime-lab.png`
@@ -54,7 +54,7 @@ Turn source material or direct image requirements into a refined provider-native
      - `style-01-clean-lifestyle-guide-4x3.png`
      - `style-02-signal-playbook-4x3.png`
      - `style-03-editorial-magazine-4x3.png`
-     - `style-04-tech-dashboard-4x3.png`
+     - `style-04-paper-system-mirror-4x3.png`
      - `style-05-handdrawn-notebook-4x3.png`
      - `style-06-ai-tool-lab-4x3.png`
      - `style-07-daily-lime-lab-4x3.png`
@@ -153,8 +153,8 @@ When the user has not chosen a style, show the static examples with image links 
    ![signal-playbook](/absolute/path/assets/style-examples/style-02-signal-playbook.png)
 3. editorial-magazine：适合深度思考、产品分析、高级感内容。
    ![editorial-magazine](/absolute/path/assets/style-examples/style-03-editorial-magazine.png)
-4. tech-dashboard：适合 AI 工具、代码教程、系统流程、数据面板。
-   ![tech-dashboard](/absolute/path/assets/style-examples/style-04-tech-dashboard.png)
+4. paper-system-mirror：适合 AI 提示词、工作流复盘、内容系统、创作者方法论。
+   ![paper-system-mirror](/absolute/path/assets/style-examples/style-04-paper-system-mirror.png)
 5. handdrawn-notebook：适合新手科普、学习笔记、心智模型。
    ![handdrawn-notebook](/absolute/path/assets/style-examples/style-05-handdrawn-notebook.png)
 6. ai-tool-lab：适合 Codex、Agent、MCP、Skills、AI 工作流。

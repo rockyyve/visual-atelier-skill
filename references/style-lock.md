@@ -106,16 +106,17 @@ Forbidden drift: comic pop posters, explosive sticker clutter, neutral report/ch
 
 Forbidden drift: generic business slide, dashboard panel, stock-photo mood with no article object.
 
-### tech-dashboard
+### paper-system-mirror
 
-- Dark or near-dark technical canvas with status bars and system labels.
-- Modular dashboard grid: code panel, build log, deployment status, preview window, QA checklist.
-- Cyan/violet/lime highlights with controlled glow.
-- Data/system hierarchy, terminal snippets, route/status chips, node connections.
-- Dense but readable operational interface feel.
-- Bottom insight/status bar.
+- Warm parchment or ivory paper field with a rounded sheet sitting on a subtle textured background.
+- Deep navy oversized Chinese title with a premium Songti/serif-inspired feel, usually 2-3 lines.
+- Amber brush underline, small diamond divider, handwritten quote or side note accents.
+- Beige topic chips with small icons, such as AI tool, Codex, workflow, prompt, audit, system.
+- Structured reflective callouts: list rows, question box, quote block, or save-worthy bottom pill.
+- Folded bottom-right page corner or page-curl anchor, optionally with a handwritten note.
+- Soft 3D paper/workflow object: paper stack, cube, magnifier, note cards, or layered workflow tiles.
 
-Forbidden drift: simple white checklist page, fake decorative code, excessive neon blur, unsupported metrics.
+Forbidden drift: dark dashboard UI, neon glow, plain beige report card, generic slide layout, missing folded-corner paper metaphor, missing amber hand-mark accents, fake Xiaohongshu watermarks, or copying reference-image account marks.
 
 ### handdrawn-notebook
 

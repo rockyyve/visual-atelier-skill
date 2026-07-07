@@ -19,7 +19,7 @@ Visual Atelier does not generate fresh demo images for every request. Instead, i
 1. `clean-lifestyle-guide`
 2. `signal-playbook`
 3. `editorial-magazine`
-4. `tech-dashboard`
+4. `paper-system-mirror`
 5. `handdrawn-notebook`
 6. `ai-tool-lab`
 7. `daily-lime-lab`

@@ -50,17 +50,17 @@ Best for: deep thinking, product analysis, brand-aware notes, course summaries, 
 - Final page inheritance: preserve magazine identity with masthead/issue labels, editorial typography feel, source-object still life, pull quotes/captions, and refined two-column or framed modules. Do not turn it into a generic slide.
 - Avoid: stock-photo atmosphere, overdecorated frames, unsupported luxury cues.
 
-## 4. tech-dashboard
+## 4. paper-system-mirror
 
-Best for: AI tools, coding tutorials, technical systems, workflow diagrams, data-heavy knowledge.
+Best for: AI prompt methods, workflow audits, creator systems, content workflows, self-review, system thinking.
 
-- Mood: precise, modern, structured, credible.
-- Palette: near black `#080a0f`, cyan `#22d3ee`, violet `#8b5cf6`, lime `#a3e635`, soft white `#f8fafc`.
-- Layout: top status bar, large title, module grid, code/spec panel, UI preview panel, bottom insight bar.
-- 4:3 landscape layout: top status bar, wide title row, 2-3 major dashboard panels across the middle, smaller system chips around them, bottom insight/status bar across the width.
-- Cover recipe: five-step workflow dashboard with readable nodes and controlled glow.
-- Final page inheritance: preserve dashboard identity with status bars, code/build/preview/QA panels, system chips, connected workflow nodes, and bottom insight/status bars. Do not use plain white checklist cards unless styled as dashboard panels.
-- Avoid: fake app screenshots, excessive glow, tiny code, visual clutter.
+- Mood: warm paper, premium knowledge card, reflective, creator-friendly, quietly polished.
+- Palette: parchment `#f7efe2`, warm ivory `#fffaf1`, deep navy `#071a3a`, amber `#d88924`, soft beige `#eadcc8`, muted ink `#243044`.
+- Layout: rounded paper sheet on a parchment background, top handwritten quote, beige topic chips with small icons, oversized deep-navy Chinese title, amber brush underline, thin divider with a small diamond, body callout blocks, bottom save/recommendation pill, folded bottom-right page corner with handwritten side note.
+- 4:3 landscape layout: wide rounded paper sheet, left oversized title and chips, center body callout/list modules, right workflow object or paper-stack illustration, folded corner or page curl retained as a strong anchor.
+- Cover recipe: handwritten quote + 2-3 topic chips + huge reflective title + short subtitle/callout + paper-stack or workflow object + save-worthy bottom pill.
+- Final page inheritance: preserve the paper-system identity through deep-navy oversized title typography, amber brush marks, handwritten quote/note accents, beige icon chips, rounded paper container, folded corner, and structured reflective callouts. Body pages should feel like a premium paper note that reveals a workflow or system, not a dashboard.
+- Avoid: dark dashboard UI, neon glow, generic beige report cards, flat white slide layouts, crowded long paragraphs, fake Xiaohongshu watermarks, or copying reference-image account marks.
 
 ## 5. handdrawn-notebook
 
@@ -117,8 +117,9 @@ Recommend styles based on content:
 - Broad how-to or productivity: `clean-lifestyle-guide`, `handdrawn-notebook`.
 - Strong mistake correction or actionable workflow: `signal-playbook`.
 - Reflective course or product design notes: `editorial-magazine`.
-- Technical workflow: `tech-dashboard`, `ai-tool-lab`.
-- AI tools, agents, plugins, skills: `ai-tool-lab` first, `daily-lime-lab` second, `tech-dashboard` third.
+- Technical workflow: `ai-tool-lab`, `paper-system-mirror`.
+- AI tools, agents, plugins, skills: `ai-tool-lab` first, `daily-lime-lab` second, `paper-system-mirror` third.
+- Prompt methods, workflow audits, creator systems, and reflective AI usage: `paper-system-mirror` first.
 - Skill/tool/resource recommendation or open-source project seeding: `daily-lime-lab` first.
 - Obsidian, knowledge bases, AI workflow systems, and tool ecosystems: `obsidian-neon-knowledge` first, `ai-tool-lab` second.
 
@@ -130,7 +131,7 @@ When the user has not specified a style, show the existing style examples and su
 1. clean-lifestyle-guide：适合...
 2. signal-playbook：适合...
 3. editorial-magazine：适合...
-4. tech-dashboard：适合...
+4. paper-system-mirror：适合...
 5. handdrawn-notebook：适合...
 6. ai-tool-lab：适合...
 7. daily-lime-lab：适合...
